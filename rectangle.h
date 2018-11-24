@@ -15,14 +15,14 @@ class Rectangle : public Shape
 {
 public:
 
-    Rectangle(const QMap<QString,QString> &, QPaintDevice* );
+    Rectangle(std::string id, shapeType shape, QPaintDevice* device, QPoint topLeft, int length, int width);
 
     ~Rectangle() override {}
 
     void draw() override;
     void move(const int translate_x, const int translate_y) override;
     double perimeter() override;
-    int area() override;
+    double area() override;
 };
 
 #endif // LINE_H

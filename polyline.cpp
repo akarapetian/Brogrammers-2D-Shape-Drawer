@@ -5,12 +5,15 @@
 #include <QPainter>
 #include <QPoint>
 #include <QVector>
-Polyline::Polyline(const QMap<QString,QString> & props, QPaintDevice* device): Shape( props, device)
+Polyline::Polyline(std::string id, shapeType shape, QPaintDevice* device, QVector<QPoint> points)
+    : Shape(id, shape, device)
 {
+    //do contructor things
 }
 
 void Polyline::draw()
 {
+    /*
     getQPainter().begin(getQDevice());
     setStyles();
     QStringList words = props["ShapeDimensions"].split(", ");
@@ -23,7 +26,9 @@ void Polyline::draw()
     }
     getQPainter().drawPolyline(points.data(),npoints);
     getQPainter().end();
+    */
 }
+
 
 
 void Polyline::move(const int translate_x, const int translate_y)
@@ -37,7 +42,7 @@ double Polyline::perimeter()
 
 }
 
-int Polyline::area()
+double Polyline::area()
 {
     return -1;
 }

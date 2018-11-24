@@ -13,7 +13,7 @@ class Line : public Shape
 {
 public:
 
-    Line(QPoint begin, QPoint end, shapeType shape, std::string id, QPaintDevice* device);
+    Line(std::string id, shapeType shape, QPaintDevice* device, QPoint begin, QPoint end);
 
     ~Line() override {}
 
@@ -21,8 +21,8 @@ public:
 
     void draw() override;
     void move(const int translate_x, const int translate_y) override;
-    void perimeter() override;
-    void area() override;
+    double perimeter() override;
+    double area() override;
 
 private:
     QPoint point_begin;

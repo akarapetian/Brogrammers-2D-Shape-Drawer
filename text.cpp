@@ -1,3 +1,4 @@
+/*
 #include "text.h"
 #include <QFont>
 #include <QPen>
@@ -5,7 +6,7 @@
 #include <QStringList>
 #include <QPainter>
 
-Text::Text(const QMap<QString,QString> & properties, QPaintDevice* device): Shape(  properties, device),textString(properties["TextString"])
+Text::Text(std::string id, shapeType shape, QPaintDevice* devicee)
 {
 }
 
@@ -75,7 +76,7 @@ double Text::perimeter(){
     return -1;
 }
 
-int Text::area(){
+double Text::area(){
     return -1;
 }
 
@@ -85,3 +86,4 @@ void Text::move(const int translateX, const int translateY){
 
 
 
+*/

@@ -8,6 +8,10 @@
 #include <QPainter>
 #include <QPen>
 
+#include "vector.h"
+
+//make shape derive form Qwidget to see if i can draw
+
 
 class Shape
 {
@@ -16,7 +20,7 @@ public:
     //Supported Shape types
     enum class shapeType {line, polyline, polygon, rectangle, ellipse, text};
 
-    Shape(shapeType shape, std::string id = "-1", QPaintDevice* device = nullptr );
+    Shape(std::string id, shapeType shape, QPaintDevice* device);
     virtual ~Shape() {}
 
     shapeType getShape() const;
@@ -32,16 +36,18 @@ public:
 
     virtual void draw() = 0;
     virtual void move(const int translateX, const int translateY) = 0;
-    virtual void perimeter() = 0;
-    virtual void area() = 0;
+    virtual double perimeter() = 0;
+    virtual double area() = 0;
 
     void drawText(const int x,const int y, std::string text);
     void drawIdentifier(const int x, const int y);
 protected:
     QPainter& getQPainter();
 
+
+
 private:
-    QPaintDevice* device;
+    QPaintDevice* paintDevice;
     QPainter qpainter;
 
     std::string identifier;

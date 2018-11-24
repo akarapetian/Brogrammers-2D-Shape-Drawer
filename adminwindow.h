@@ -2,8 +2,18 @@
 #define ADMINWINDOW_H
 
 #include <QDialog>
+
+#include <QGraphicsScene>
+
 #include "vector.h"
 #include "shape.h"
+#include "ellipse.h"
+#include "line.h"
+#include "polygon.h"
+#include "polyline.h"
+#include "rectangle.h"
+#include "text.h"
+
 
 namespace Ui {
 class adminWindow;
@@ -17,15 +27,20 @@ public:
     explicit adminWindow(QWidget *parent = 0);
     ~adminWindow();
 
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+
 private slots:
-    void on_pushButton_clicked();
 
     void on_readFile_clicked();
 
 private:
     Ui::adminWindow *ui;
 
-    vector<Shape> *shapeVector;
+    QPaintDevice *paintDevice;
+
+    vector<Shape*> shapeVector;
 };
 
 #endif // ADMINWINDOW_H

@@ -11,13 +11,13 @@
 class Polygon : public Shape
 {
 public:
-    Polygon(const QMap<QString,QString> & props, QPaintDevice* device);
+    Polygon(std::string id, shapeType shape, QPaintDevice* device, QVector<QPoint> points);
     ~Polygon() override {}
 
     void draw() override;
     void move(const int translate_x, const int translate_y) override;
     double perimeter() override;
-    int area() override;
+    double area() override;
 };
 
 #endif // POLYGON_H

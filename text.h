@@ -1,3 +1,4 @@
+/*
 #ifndef TEXT_H
 #define TEXT_H
 #include "shape.h"
@@ -11,11 +12,12 @@ private:
     int getWeight(const QString &weight);
 
 public:
-    Text(const QMap<QString,QString> & styles, QPaintDevice* device);
+    Text(std::string id, shapeType shape, QPaintDevice* device); //have to add a bunch more parameters
     void draw() override;
     double perimeter() override;
-    int area() override;
+    double area() override;
     void move(const int translateX, const int translateY);
     void setStyles() override;
 };
 #endif // TEXT_H
+*/

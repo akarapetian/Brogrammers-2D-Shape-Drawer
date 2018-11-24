@@ -8,12 +8,14 @@
 #ifndef M_PI
 #define M_PI (3.14159265358979323846)
 #endif
-Ellipse::Ellipse(const QMap<QString,QString> & props, QPaintDevice* device): Shape( props, device)
+Ellipse::Ellipse(std::string id, shapeType shape, QPaintDevice* device, QPoint topLeft, int a, int b)
+    : Shape(id, shape, device)
 {
 }
 
 void Ellipse::draw()
 {
+    /*
     getQPainter().begin(getQDevice());
     setStyles();
     QStringList words = props["ShapeDimensions"].split(", ");
@@ -21,6 +23,8 @@ void Ellipse::draw()
     drawIdentifier(words[0].toInt(),words[1].toInt());
     getQPainter().drawEllipse(rect);
     getQPainter().end();
+    */
+
 }
 
 
@@ -32,12 +36,12 @@ void Ellipse::move(const int translate_x, const int translate_y)
 
 double Ellipse::perimeter()
 {
-    QStringList words = props["ShapeDimensions"].split(", ");
-    return  2 * M_PI * words[2].toInt();
+    //QStringList words = props["ShapeDimensions"].split(", ");
+    //return  2 * M_PI * words[2].toInt();
 }
 
-int Ellipse::area()
+double Ellipse::area()
 {
-    QStringList words = props["ShapeDimensions"].split(", ");
-    return M_PI * words[2].toInt() * words[2].toInt();
+    //QStringList words = props["ShapeDimensions"].split(", ");
+    //return M_PI * words[2].toInt() * words[2].toInt();
 }

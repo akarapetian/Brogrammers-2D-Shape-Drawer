@@ -1,7 +1,7 @@
 #include "line.h"
 
-Line::Line(QPoint begin, QPoint end, shapeType shape, std::string id, QPaintDevice* device)
-        : Shape(shape, id, device)
+Line::Line(std::string id, shapeType shape, QPaintDevice* device, QPoint begin, QPoint end)
+        : Shape(id, shape, device)
 {
     point_begin = begin;
     point_end   = end;
@@ -29,12 +29,14 @@ void Line::move(const int translate_x, const int translate_y)
     point_end.ry() += translate_y;
 }
 
-void Line::perimeter()
+double Line::perimeter()
 {
     //not sure
+    return -1;
 }
 
-void Line::area()
+double Line::area()
 {
     //not sure
+    return -1;
 }

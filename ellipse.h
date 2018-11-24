@@ -15,14 +15,18 @@ class Ellipse : public Shape
 {
 public:
 
-    Ellipse(const QMap<QString,QString> &, QPaintDevice* );
+    Ellipse(std::string id, shapeType shape, QPaintDevice* device, QPoint topLeft, int a, int b);
 
     ~Ellipse() override {}
 
     void draw() override;
     void move(const int translate_x, const int translate_y) override;
     double perimeter() override;
-    int area() override;
+    double area() override;
+
+private:
+
+
 };
 
 #endif // LINE_H

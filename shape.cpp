@@ -1,13 +1,14 @@
 #include "shape.h"
 #include <QUuid>
 
-Shape::Shape(Shape::shapeType typeOfShape, std::string id  , QPaintDevice* device   ){
+Shape::Shape(std::string id , Shape::shapeType typeOfShape, QPaintDevice* device){
     shape = typeOfShape;
     if(id == "-1"){
         QUuid u=QUuid::createUuid();
         id = u.toString().toUtf8().constData();;
     }
     identifier = id;
+    paintDevice = device;
 }
 
 Shape::shapeType Shape::getShape() const{

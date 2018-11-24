@@ -15,14 +15,14 @@ class Polyline : public Shape
 {
 public:
 
-    Polyline(const QMap<QString,QString> &, QPaintDevice* );
+    Polyline(std::string id, shapeType shape, QPaintDevice* device, QVector<QPoint> points);
 
     ~Polyline() override {}
 
     void draw() override;
     void move(const int translate_x, const int translate_y) override;
     double perimeter() override;
-    int area() override;
+    double area() override;
 };
 
 #endif // LINE_H
