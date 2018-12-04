@@ -1,3 +1,25 @@
 # Brogrammers-2D-Shape-Drawer
 
-This is going to become our new repository. I am re-building the project to see if we can use QT designer. 
+This is going to become our new repository.
+
+Im trying to make the project as simple as possible, and meet all the requirements. 
+
+Currently we need to:
+
+- add shapes
+- delete shapes
+- report shape perimeters and areas
+- move shapes
+
+- add a "contact us section", with team name and logo
+
+- create uml diagrams of the project
+- run valgrind
+- run doxygen
+
+- make everything look pretty
+
+and thats literally it
+
+
+
