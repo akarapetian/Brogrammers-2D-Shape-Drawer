@@ -4,6 +4,11 @@ This is going to become our new repository.
 
 Im trying to make the project as simple as possible, and meet all the requirements. 
 
+
+
+BUGS:
+7th shape isn't being read by the parser at all
+
 Currently we need to:
 
 - add shapes
