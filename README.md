@@ -7,7 +7,7 @@ Im trying to make the project as simple as possible, and meet all the requiremen
 
 
 BUGS:
-7th shape isn't being read by the parser at all
+7th shape isn't being read by the parser at all (FIXED)
 
 Currently we need to:
 
