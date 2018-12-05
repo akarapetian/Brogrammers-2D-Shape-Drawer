@@ -55,8 +55,7 @@ HEADERS += \
 FORMS += \
         mainwindow.ui
 
-DISTFILES += \
-    shapes.txt
+DISTFILES +=
 
 RESOURCES += \
     resource.qrc

@@ -24,7 +24,7 @@
 class Utilities{
 public:
     static vector<QMap<QString,QString>> readShapesFile(){
-        QFile file("/home/cs1c/Brogrammers-2D-Shape-Drawer/Fresh-Start/shapes.txt");
+        QFile file(":/new/prefix/shapes.txt");
         vector<QMap<QString,QString>> vec;
         QMap<QString,QString> dictionary;
 
