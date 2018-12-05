@@ -13,7 +13,7 @@ Currently we need to:
 
 - add shapes
 - delete shapes
-- report shape perimeters and areas (FINISHED) (for the most part)
+- report shape perimeters and areas (FINISHED)
 - move shapes (FINISHED)
 
 - add a "contact us section", with team name and logo (FINISHED)
