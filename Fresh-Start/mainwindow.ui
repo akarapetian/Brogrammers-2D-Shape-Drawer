@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="BlankPage"/>
     <widget class="QWidget" name="LoginPage">
@@ -46,7 +46,7 @@
       <property name="title">
        <string>Login </string>
       </property>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -155,6 +155,124 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="PerimeterReport">
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>120</y>
+        <width>721</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Perimeter Report</string>
+      </property>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>31</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Id</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="idlistWidget"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>691</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Shape Perimeter</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="perimeterListWidget"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="AreaReport">
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>90</y>
+        <width>721</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Area Report</string>
+      </property>
+      <widget class="QWidget" name="layoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>31</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Id</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="idlistWidget_2"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_3">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>691</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Shape Area</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="areaListWidget"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -172,7 +290,21 @@
     </property>
     <addaction name="actionLogin"/>
    </widget>
+   <widget class="QMenu" name="menuReport">
+    <property name="title">
+     <string>Report</string>
+    </property>
+    <addaction name="actionPerimeters"/>
+    <addaction name="actionAreas"/>
+   </widget>
+   <widget class="QMenu" name="menuContact_Us">
+    <property name="title">
+     <string>Contact Us</string>
+    </property>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuReport"/>
+   <addaction name="menuContact_Us"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -186,6 +318,16 @@
   <action name="actionLogin">
    <property name="text">
     <string>Login</string>
+   </property>
+  </action>
+  <action name="actionPerimeters">
+   <property name="text">
+    <string>Perimeters</string>
+   </property>
+  </action>
+  <action name="actionAreas">
+   <property name="text">
+    <string>Areas</string>
    </property>
   </action>
  </widget>

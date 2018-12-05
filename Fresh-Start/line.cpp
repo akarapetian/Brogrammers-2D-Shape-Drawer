@@ -28,8 +28,7 @@ void Line::move(const int translate_x, const int translate_y)
 
 double Line::perimeter()
 {
-    QStringList words = props["ShapeDimensions"].split(", ");
-    return  std::sqrt((words[0].toInt()-words[2].toInt())*(words[0].toInt()-words[2].toInt())+(words[3].toInt()-words[1].toInt())*(words[3].toInt()-words[1].toInt())+0.0);
+    return  -1;
 }
 
 int Line::area()

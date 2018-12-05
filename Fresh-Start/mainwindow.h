@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include "renderarea.h"
+#include "vector.h"
 
 namespace Ui {
 class MainWindow;
@@ -23,6 +24,10 @@ private slots:
     void on_loginButton_clicked();
 
     void on_addShapeButton_clicked();
+
+    void on_actionPerimeters_triggered();
+
+    void on_actionAreas_triggered();
 
 private:
     Ui::MainWindow *ui;

@@ -52,8 +52,7 @@ class vector
         return elem[n];
     }
 
-    /*
-    const Type& operator[](int n) //return index operator
+    const Type& operator[](int n) const //return index operator
     {
         if(n >= size_v)
         {
@@ -62,7 +61,7 @@ class vector
 
         return elem[n];
     }
-    */
+
 
     int size() const; //the current size of vector
 
@@ -254,7 +253,7 @@ void vector<Type>::reserve(int newCapacity)
             tempElem[i] = elem[i];
         }
 
-        delete[] elem;
+        delete [] elem;
 
         elem = tempElem;
     }

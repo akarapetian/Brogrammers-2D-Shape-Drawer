@@ -16,6 +16,7 @@ renderArea::renderArea(QWidget *parent)
 
     //this will show if the parser is populating the shapes vector, it is not working currently, (why nothing is drawing)
     QTextStream(stdout) << "size of shapes vector: " << shapes.size()  << endl;
+
 }
 
 
@@ -23,7 +24,7 @@ void renderArea::paintEvent(QPaintEvent * /* event */)
 {
     for(int i=0; i < shapes.size(); i++)
     {
-        shapes[i]-> draw();
+        shapes[i]->draw();
     }
 }
 
@@ -31,6 +32,8 @@ vector<Shape *> * renderArea::getShapes()
 {
     return &shapes;
 }
+
+
 
 void renderArea::addShape()
 {
