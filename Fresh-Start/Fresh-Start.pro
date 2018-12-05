@@ -57,3 +57,6 @@ FORMS += \
 
 DISTFILES += \
     shapes.txt
+
+RESOURCES += \
+    resource.qrc

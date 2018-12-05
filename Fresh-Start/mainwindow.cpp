@@ -87,3 +87,8 @@ void MainWindow::on_actionAreas_triggered()
     //report on areas of the objects in the vector
     ui->stackedWidget->setCurrentIndex(5);
 }
+
+void MainWindow::on_actionOur_Information_triggered()
+{
+    ui->stackedWidget->setCurrentIndex(6);
+}

@@ -29,6 +29,8 @@ private slots:
 
     void on_actionAreas_triggered();
 
+    void on_actionOur_Information_triggered();
+
 private:
     Ui::MainWindow *ui;
 
