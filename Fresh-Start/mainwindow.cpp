@@ -58,11 +58,13 @@ void MainWindow::on_loginButton_clicked()
     {
         //accept login
         ui->stackedWidget->setCurrentIndex(2);
+        loginType = "admin";
     }
     else if(username == "user" && password == "user")
     {
         //reject login
         ui->stackedWidget->setCurrentIndex(3);
+        loginType = "user";
     }
     else
     {
@@ -91,4 +93,28 @@ void MainWindow::on_actionAreas_triggered()
 void MainWindow::on_actionOur_Information_triggered()
 {
     ui->stackedWidget->setCurrentIndex(6);
+}
+
+void MainWindow::on_returnButton_clicked()
+{
+    if(loginType == "admin")
+    {
+        ui->stackedWidget->setCurrentIndex(2);
+    }
+    else if(loginType == "user")
+    {
+        ui->stackedWidget->setCurrentIndex(3);
+    }
+}
+
+void MainWindow::on_returnButton_2_clicked()
+{
+    if(loginType == "admin")
+    {
+        ui->stackedWidget->setCurrentIndex(2);
+    }
+    else if(loginType == "user")
+    {
+        ui->stackedWidget->setCurrentIndex(3);
+    }
 }

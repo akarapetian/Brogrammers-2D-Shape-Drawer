@@ -31,10 +31,17 @@ private slots:
 
     void on_actionOur_Information_triggered();
 
+    void on_returnButton_clicked();
+
+    void on_returnButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 
     renderArea *renderWindow;
+
+    QString loginType;
+
 };
 
 #endif // MAINWINDOW_H

@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="BlankPage"/>
     <widget class="QWidget" name="LoginPage">
@@ -209,12 +209,12 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>40</x>
          <y>20</y>
-         <width>71</width>
+         <width>72</width>
          <height>261</height>
         </rect>
        </property>
@@ -231,6 +231,19 @@
         </item>
        </layout>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="returnButton">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>460</y>
+        <width>201</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Return</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="AreaReport">
@@ -251,7 +264,7 @@
         <rect>
          <x>0</x>
          <y>20</y>
-         <width>41</width>
+         <width>72</width>
          <height>261</height>
         </rect>
        </property>
@@ -290,12 +303,12 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>40</x>
          <y>20</y>
-         <width>71</width>
+         <width>72</width>
          <height>261</height>
         </rect>
        </property>
@@ -312,6 +325,19 @@
         </item>
        </layout>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="returnButton_2">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>460</y>
+        <width>201</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Return</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="ContactUsPage">
@@ -331,7 +357,7 @@
        <pixmap resource="resource.qrc">:/new/prefix/bro.png</pixmap>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>630</x>
