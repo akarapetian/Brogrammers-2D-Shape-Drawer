@@ -35,6 +35,10 @@ private slots:
 
     void on_returnButton_2_clicked();
 
+    void on_horizSpinBox_valueChanged(int arg1);
+
+    void on_vertSpinBox_valueChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
 

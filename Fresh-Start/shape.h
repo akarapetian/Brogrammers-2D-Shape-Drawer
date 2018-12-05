@@ -37,6 +37,9 @@ public:
     void modify(const QString&, const QString&);
     QString getId();
     QMap<QString,QString>& getDictionary();
+
+    int prevTranslate_x;
+    int prevTranslate_y;
 protected:
     QPainter& getQPainter();
     QPaintDevice * getQDevice();

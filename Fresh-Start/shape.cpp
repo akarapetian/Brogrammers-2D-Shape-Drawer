@@ -9,6 +9,9 @@ Shape::Shape(const QMap<QString,QString> & styles, QPaintDevice* device):props(s
         props["ShapeId"] = u.toString();
     }
     identifier = props["ShapeId"];
+
+    prevTranslate_x = 0;
+    prevTranslate_y = 0;
 }
 
 

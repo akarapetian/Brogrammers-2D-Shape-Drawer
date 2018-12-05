@@ -16,7 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     //***** WE MAY NEED TO MOVE THIS BLOCK OF CODE SO THAT IT UPDATES WHEN SHAPES ARE ADDED/DELETED
-    //populate the permiter and area report lists here
+    //this block works with the permimeter and area reports, it puts the items in the widget
+
     //this for loop iterates through the whole vector
     for(int i = 0; i < ui->renderWidget->getShapes()->size(); i++ )
     {
@@ -116,5 +117,53 @@ void MainWindow::on_returnButton_2_clicked()
     else if(loginType == "user")
     {
         ui->stackedWidget->setCurrentIndex(3);
+    }
+}
+
+void MainWindow::on_horizSpinBox_valueChanged(int arg1)
+{
+    //find corresponding shape id and call move function
+    bool found = false;
+    int count = 0;
+    while(count < ui->renderWidget->getShapes()->size() && !found)
+    {
+        //find the shape
+        if(ui->moveShapeID->text() == ui->renderWidget->getShapes()->operator [](count)->getDictionary()["ShapeId"])
+        {
+            found = true;
+
+            //call the move function to move the shape
+            ui->renderWidget->getShapes()->operator [](count)->move(arg1, ui->vertSpinBox->value());
+
+            ui->renderWidget->update();
+        }
+        else
+        {
+            count++;
+        }
+    }
+}
+
+void MainWindow::on_vertSpinBox_valueChanged(int arg1)
+{
+    //find corresponding shape id and call move function
+    bool found = false;
+    int count = 0;
+    while(count < ui->renderWidget->getShapes()->size() && !found)
+    {
+        //find the shape
+        if(ui->moveShapeID->text() == ui->renderWidget->getShapes()->operator [](count)->getDictionary()["ShapeId"])
+        {
+            found = true;
+
+            //call the move function to move the shape
+            ui->renderWidget->getShapes()->operator [](count)->move(ui->horizSpinBox->value(), arg1);
+
+            ui->renderWidget->update();
+        }
+        else
+        {
+            count++;
+        }
     }
 }
