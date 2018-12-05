@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="BlankPage"/>
     <widget class="QWidget" name="LoginPage">
@@ -141,17 +141,14 @@
      </widget>
     </widget>
     <widget class="QWidget" name="UserPage">
-     <widget class="QLabel" name="label_4">
+     <widget class="renderArea" name="renderWidget_user" native="true">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>210</y>
-        <width>54</width>
-        <height>17</height>
+        <x>10</x>
+        <y>10</y>
+        <width>1101</width>
+        <height>491</height>
        </rect>
-      </property>
-      <property name="text">
-       <string>user</string>
       </property>
      </widget>
     </widget>
