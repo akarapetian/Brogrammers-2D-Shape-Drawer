@@ -13,6 +13,9 @@
 #include <QColor>
 #include <QFont>
 
+#include <QTextStream>
+#include <iostream>
+
 class Shape
 {
 

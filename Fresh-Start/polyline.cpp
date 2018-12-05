@@ -28,8 +28,42 @@ void Polyline::draw()
 
 void Polyline::move(const int translate_x, const int translate_y)
 {
-    //DO nothing now
-    return;
+    QStringList words = props["ShapeDimensions"].split(", ");
+
+    QString newDimensions;
+
+    //read the positions in
+    for(int i = 0; i < words.size(); i++)
+    {
+        if(i % 2 == 0)
+        {
+            //if even number
+            words[i] = QString::number(words[i].toInt() + (translate_x - prevTranslate_x));
+        }
+        else
+        {
+            //if odd number
+            words[i] = QString::number(words[i].toInt() + (translate_y - prevTranslate_y));
+        }
+
+        //this if statement makes sure that no extra comma is added to the end
+        if(i < words.size() - 1)
+        {
+           newDimensions += words[i] + ", ";
+        }
+        else
+        {
+            newDimensions += words[i];
+        }
+
+        QTextStream(stdout) << newDimensions  << endl;
+    }
+
+    prevTranslate_x = translate_x;
+    prevTranslate_y = translate_y;
+
+    props["ShapeDimensions"] = newDimensions;
+    QTextStream(stdout) << props["ShapeDimensions"]  << endl;
 }
 
 double Polyline::perimeter()

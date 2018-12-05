@@ -5,8 +5,7 @@
 #include <QPainter>
 #include <QPoint>
 
-#include <QTextStream>
-#include <iostream>
+
 
 Line::Line(const QMap<QString,QString> & props, QPaintDevice* device): Shape( props, device)
 {

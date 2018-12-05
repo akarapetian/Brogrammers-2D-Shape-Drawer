@@ -39,6 +39,8 @@ private slots:
 
     void on_vertSpinBox_valueChanged(int arg1);
 
+    void on_moveShapeID_editingFinished();
+
 private:
     Ui::MainWindow *ui;
 

@@ -13,8 +13,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
 
-
-
     //***** WE MAY NEED TO MOVE THIS BLOCK OF CODE SO THAT IT UPDATES WHEN SHAPES ARE ADDED/DELETED
     //this block works with the permimeter and area reports, it puts the items in the widget
 
@@ -166,4 +164,11 @@ void MainWindow::on_vertSpinBox_valueChanged(int arg1)
             count++;
         }
     }
+}
+
+void MainWindow::on_moveShapeID_editingFinished()
+{
+    //reset the spin boxes values to 0
+    ui->horizSpinBox->setValue(0);
+    ui->vertSpinBox->setValue(0);
 }

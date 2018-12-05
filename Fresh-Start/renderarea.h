@@ -20,8 +20,6 @@ public:
 
     void addShape();
 
-
-
 public slots:
 
 protected:
