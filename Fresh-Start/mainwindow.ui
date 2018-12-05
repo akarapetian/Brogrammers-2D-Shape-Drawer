@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="BlankPage"/>
     <widget class="QWidget" name="LoginPage">
@@ -165,12 +165,12 @@
       <property name="title">
        <string>Perimeter Report</string>
       </property>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>20</y>
-         <width>31</width>
+         <width>41</width>
          <height>261</height>
         </rect>
        </property>
@@ -183,16 +183,16 @@
          </widget>
         </item>
         <item>
-         <widget class="QListWidget" name="idlistWidget"/>
+         <widget class="QListWidget" name="idListWidget"/>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>110</x>
          <y>20</y>
-         <width>691</width>
+         <width>611</width>
          <height>261</height>
         </rect>
        </property>
@@ -209,14 +209,36 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>20</y>
+         <width>71</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Shape Type</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="typeListWidget"/>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="AreaReport">
      <widget class="QGroupBox" name="groupBox_3">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>90</y>
+        <x>190</x>
+        <y>120</y>
         <width>721</width>
         <height>281</height>
        </rect>
@@ -229,7 +251,7 @@
         <rect>
          <x>0</x>
          <y>20</y>
-         <width>31</width>
+         <width>41</width>
          <height>261</height>
         </rect>
        </property>
@@ -242,16 +264,16 @@
          </widget>
         </item>
         <item>
-         <widget class="QListWidget" name="idlistWidget_2"/>
+         <widget class="QListWidget" name="idListWidget_2"/>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="layoutWidget_3">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>110</x>
          <y>20</y>
-         <width>691</width>
+         <width>611</width>
          <height>261</height>
         </rect>
        </property>
@@ -265,6 +287,28 @@
         </item>
         <item>
          <widget class="QListWidget" name="areaListWidget"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>20</y>
+         <width>71</width>
+         <height>261</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Shape Type</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="typeListWidget_2"/>
         </item>
        </layout>
       </widget>

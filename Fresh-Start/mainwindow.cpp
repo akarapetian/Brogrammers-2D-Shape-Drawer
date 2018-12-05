@@ -23,14 +23,16 @@ MainWindow::MainWindow(QWidget *parent) :
         //if statement checks if the shape has a perimeter, and outputs it if it does
         if(ui->renderWidget->getShapes()->operator [](i)->perimeter() != -1)
         {
-            ui->idlistWidget       ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"]);
+            ui->idListWidget       ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"]);
+            ui->typeListWidget     ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"]);
             ui->perimeterListWidget->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->perimeter()));
         }
 
         //if statement checks if the shape has an area and outputs it if it does
         if(ui->renderWidget->getShapes()->operator [](i)->area() != -1)
         {
-            ui->idlistWidget_2     ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"]);
+            ui->idListWidget_2     ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"]);
+            ui->typeListWidget_2   ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"]);
             ui->areaListWidget->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->area()));
         }
     }
