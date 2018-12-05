@@ -7,7 +7,8 @@ Im trying to make the project as simple as possible, and meet all the requiremen
 
 
 BUGS:
-7th shape isn't being read by the parser at all (FIXED)
+- 7th shape isn't being read by the parser at all (FIXED)
+- The third item in the vector, (the polygon) is not rendering its id alongside its shape
 
 Currently we need to:
 
