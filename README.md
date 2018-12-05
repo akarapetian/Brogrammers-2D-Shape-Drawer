@@ -14,7 +14,7 @@ Currently we need to:
 - add shapes
 - delete shapes
 - report shape perimeters and areas (FINISHED) (for the most part)
-- move shapes (finished for line, circle, ellipse, working on the rest of the shapes now)
+- move shapes (FINISHED)
 
 - add a "contact us section", with team name and logo (FINISHED)
 
