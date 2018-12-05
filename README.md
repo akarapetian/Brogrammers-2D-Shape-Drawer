@@ -16,7 +16,7 @@ Currently we need to:
 - report shape perimeters and areas (FINISHED) (for the most part)
 - move shapes
 
-- add a "contact us section", with team name and logo
+- add a "contact us section", with team name and logo (FINISHED)
 
 - create uml diagrams of the project
 - run valgrind
