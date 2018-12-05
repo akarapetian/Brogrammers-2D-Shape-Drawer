@@ -92,4 +92,42 @@ public:
 
         return newVector;
     }
+
+/*
+    //this function writes the shapes back into the shapes.txt
+    static void writeShapes()
+    {
+        QFile file(":/new/prefix/shapes.txt");
+        vector<QMap<QString,QString>> vec;
+        QMap<QString,QString> dictionary;
+
+        if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
+            QMessageBox::information(0, "error", file.errorString());
+
+        else
+        {
+            QTextStream out(&file);
+
+            while(!in.atEnd()) {
+
+                QString line = in.readLine();
+                if(line.isEmpty())
+                {
+                    if(dictionary.empty())
+                        continue;
+                    vec.push_back(dictionary);
+                    dictionary.clear();
+                }
+                else
+                {
+                    QStringList fields = line.split(": ");
+                    dictionary[fields[0]]=fields[1];
+                }
+            }
+            file.close();
+
+        }
+        return vec;
+    }
+    */
 };
