@@ -82,3 +82,14 @@ TextFontFamily: Comic Sans MS
 TextFontStyle: FlatCap
 TextFontWeight: Normal
 
+ShapeId: 
+ShapeType: 
+ShapeDimensions: 
+PenColor: 
+PenWidth: 
+PenStyle: 
+PenCapStyle: 
+PenJoinStyle: 
+BrushColor: 
+BrushStyle: 
+

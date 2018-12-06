@@ -4,6 +4,16 @@
 #include <QMainWindow>
 
 #include "renderarea.h"
+#include "shape.h"
+#include "line.h"
+#include "polyline.h"
+#include "polygon.h"
+#include "rectangle.h"
+#include "square.h"
+#include "ellipse.h"
+#include "circle.h"
+#include "text.h"
+
 #include "vector.h"
 
 namespace Ui {
@@ -41,7 +51,7 @@ private slots:
 
     void on_moveShapeID_editingFinished();
 
-    void on_typeBox_activated(const QString &arg1);
+    void on_typeBox_currentTextChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

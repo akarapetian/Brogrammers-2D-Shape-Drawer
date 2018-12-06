@@ -1,34 +1,17 @@
 #ifndef VECTOR_H_
 #define VECTOR_H_
 
-
-
-/*!
-* vector class that holds all of our shape objects
-*/
 template <typename Type>
 class vector
 {
     public:
 
-    /*!
-    * default constructor for the vector
-    */
     vector(); //constructor
 
-    /*!
-    * alternate constructor for the vector
-    */
     vector(int s); //alt constructor, s is the capacity
 
-    /*!
-    * copy constructor for the vector
-    */
     vector(const vector&v); //copy constructor
 
-    /*!
-    * overloaded copy assignment
-    */
     vector<Type>& operator=(const vector<Type>& v)//copy assignment
     {
         resize(v.size_v);
@@ -42,14 +25,8 @@ class vector
         return *this;
     }
 
-    /*!
-    * move constructor for the vector
-    */
     vector(vector &&v); //move constructor
 
-    /*!
-    * overloaded assignment for move constructor
-    */
     vector<Type>& operator=(vector<Type> &&v) //move assignment
     {
         size_v = v.size_v;
@@ -63,14 +40,8 @@ class vector
         return *this;
     }
 
-    /*!
-    * deletes the vector and all dynamically allocated data
-    */
     ~vector();
 
-    /*!
-    * return index operator templated
-    */
     Type& operator[](int n) //return index operator
     {
         if(n >= size_v)
@@ -81,9 +52,6 @@ class vector
         return elem[n];
     }
 
-    /*!
-    * constant templated return index operator
-    */
     const Type& operator[](int n) const //return index operator
     {
         if(n >= size_v)
@@ -94,87 +62,40 @@ class vector
         return elem[n];
     }
 
-    /*!
-    * returns the constant current size of the vector
-    */
+
     int size() const; //the current size of vector
 
-    /*!
-    * returns the capacity of the vector as a constant
-    */
     int capacity() const; //current availible space
 
-    /*!
-    * resizes the vector
-    */
     void resize(int newsize); //grow capacity
 
-    /*!
-    * adds an element and pushes it back into the list
-    */
     void push_back(Type val); //add element
 
-    /*!
-    * reserves more space for the vector
-    */
     void reserve(int newalloc); //get more space
 
-    /*!
-    * Typedef
-    */
     using iterator = Type*;
 
-    /*!
-    * Typedef
-    */
     using const_iterator = const Type*;
 
-    /*!
-    * points to the first element
-    */
     iterator begin(); //points to first element
 
-    /*!
-    * points to the first element as a constant iterator
-    */
     const_iterator begin() const;
 
-    /*!
-    * points to the last element
-    */
     iterator end(); //points to one beyond last element
 
-    /*!
-    * points to the last element as a constant iterator
-    */
     const_iterator end() const;
 
-    /*!
-    * inserts a new element into the list
-    */
     iterator insert(iterator p, const Type& v); //insert a new element v before p
 
-    /*!
-    * deletes an element in the list
-    */
     iterator erase(iterator p); //remove element pointed to by p
 
 
     private:
 
-    /*!
-    * int variable that contains the number of elements stored
-    */
     int size_v; //# of elements stored in vector
 
-    /*!
-    * int variable that contains the number of open spaces that can possibly be stored in the vector
-    */
     int capacity_v; //# of elements that can be possibly stored in the vector
 
-    /*!
-    * pointer to the elements
-    */
     Type* elem; //pointer to the elements
 };
 
