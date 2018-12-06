@@ -199,8 +199,9 @@ void MainWindow::on_addShapeButton_clicked()
         QTextStream(stdout) << "ShapeId: " << ui->renderWidget->getShapes()->operator [](ui->renderWidget->getShapes()->size() - 1)->getDictionary()["ShapeId"] << endl;
         QTextStream(stdout) << "ShapeType: " << ui->renderWidget->getShapes()->operator [](ui->renderWidget->getShapes()->size() -  1)->getDictionary()["ShapeType"] << endl;
         QTextStream(stdout) << "ShapeDimensions: " << ui->renderWidget->getShapes()->operator [](ui->renderWidget->getShapes()->size() - 1)->getDictionary()["ShapeDimensions"] << endl;
-
     }
+
+
     if(ui->typeBox->currentText() == "Polyline")
     {
         ui->renderWidget->getShapes()->push_back(new Polyline(data, ui->renderWidget));
@@ -369,5 +370,30 @@ void MainWindow::on_typeBox_currentTextChanged(const QString &arg1)
     {
         ui->dimensionsStack->setCurrentIndex(7);
         ui->attributesStack->setCurrentIndex(2);
+    }
+}
+
+
+void MainWindow::on_deleteShapeButton_clicked()
+{
+    //find corresponding shape id and call move function
+    bool found = false;
+    int count = 0;
+    while(count < ui->renderWidget->getShapes()->size() && !found)
+    {
+        //find the shape
+        if(ui->deleteID->text() == ui->renderWidget->getShapes()->operator [](count)->getDictionary()["ShapeId"])
+        {
+            found = true;
+
+            //call the move function to move the shape
+            ui->renderWidget->getShapes()->erase(&(ui->renderWidget->getShapes()->operator [](count)));
+
+            ui->renderWidget->update();
+        }
+        else
+        {
+            count++;
+        }
     }
 }

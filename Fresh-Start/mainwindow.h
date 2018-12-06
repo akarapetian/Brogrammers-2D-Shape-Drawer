@@ -53,6 +53,8 @@ private slots:
 
     void on_typeBox_currentTextChanged(const QString &arg1);
 
+    void on_deleteShapeButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
