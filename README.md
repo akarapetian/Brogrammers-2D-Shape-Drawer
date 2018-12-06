@@ -16,7 +16,7 @@ BUGS:
 Currently we need to:
 
 - add shapes
-- delete shapes
+- delete shapes(FINISHED)
 - report shape perimeters and areas (FINISHED)
 - move shapes (FINISHED)
 - save shapes file and re-write it for next time the project runs (FINISHED)
@@ -25,10 +25,9 @@ Currently we need to:
 
 - create uml diagrams of the project(FINISHED)
 - run valgrind(FINISHED)
-- run doxygen
+- run doxygen(FINISHED)
 
-- make everything look pretty
-
+- make everything look pretty(FINISHED)
 and thats literally it
 
 
