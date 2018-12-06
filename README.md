@@ -19,7 +19,7 @@ Currently we need to:
 - delete shapes
 - report shape perimeters and areas (FINISHED)
 - move shapes (FINISHED)
-- save shapes file and re-write it for next time the project runs
+- save shapes file and re-write it for next time the project runs (FINISHED)
 
 - add a "contact us section", with team name and logo (FINISHED)
 
