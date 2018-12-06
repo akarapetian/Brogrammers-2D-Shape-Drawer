@@ -372,3 +372,28 @@ void MainWindow::on_typeBox_currentTextChanged(const QString &arg1)
         ui->attributesStack->setCurrentIndex(2);
     }
 }
+
+
+void MainWindow::on_deleteShapeButton_clicked()
+{
+    //find corresponding shape id and call move function
+    bool found = false;
+    int count = 0;
+    while(count < ui->renderWidget->getShapes()->size() && !found)
+    {
+        //find the shape
+        if(ui->deleteID->text() == ui->renderWidget->getShapes()->operator [](count)->getDictionary()["ShapeId"])
+        {
+            found = true;
+
+            //call the move function to move the shape
+            ui->renderWidget->getShapes()->erase(&(ui->renderWidget->getShapes()->operator [](count)));
+
+            ui->renderWidget->update();
+        }
+        else
+        {
+            count++;
+        }
+    }
+}
