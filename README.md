@@ -23,8 +23,8 @@ Currently we need to:
 
 - add a "contact us section", with team name and logo (FINISHED)
 
-- create uml diagrams of the project
-- run valgrind
+- create uml diagrams of the project(FINISHED)
+- run valgrind(FINISHED)
 - run doxygen
 
 - make everything look pretty
