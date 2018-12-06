@@ -10,7 +10,7 @@ BUGS:
 - 7th shape isn't being read by the parser at all (FIXED)
 - The third item in the vector, (the polygon) is not rendering its id alongside its shape
 - NEW BUG - the shapes are being reset if you move it, move another shape, and return to moving the first one. Their positions are being reset to where the file read them in. 
-- Fixed a bug where the filepath was not finding the shapes.txt for the vector by putting the shapes.txt in the resources folder. However this creates a new problem where the resources folder is READ-ONLY so we cannot save to the file through that method. We have to find a way to dynamically access the shapes.txt directory. 
+- Fixed a bug where the filepath was not finding the shapes.txt for the vector by putting the shapes.txt in the resources folder. However this creates a new problem where the resources folder is READ-ONLY so we cannot save to the file through that method. We have to find a way to dynamically access the shapes.txt directory. (FIXED BUT NEEDS TESTING)
 
 Currently we need to:
 
