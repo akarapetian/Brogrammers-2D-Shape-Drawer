@@ -9,6 +9,7 @@ Im trying to make the project as simple as possible, and meet all the requiremen
 BUGS:
 - 7th shape isn't being read by the parser at all (FIXED)
 - The third item in the vector, (the polygon) is not rendering its id alongside its shape
+- NEW BUG - the shapes are being reset if you move it, move another shape, and return to moving the first one. Their positions are being reset to where the file read them in. 
 
 Currently we need to:
 
