@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 
 #include <QMessageBox>
+#include <QFile>
+#include <QIODevice>
+#include <QDir>
 
 #include <QTextStream>
 #include <iostream>
@@ -37,8 +40,84 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 }
 
+//destructor saves the shapes file and deletes the ui
 MainWindow::~MainWindow()
 {
+    //****THIS BLOCK OF CODE "SAVES" THE SHAPES.TXT
+
+    //this block finds the correct filepath to shapes.txt
+    QFile file;
+    QString fileName = QDir::currentPath();
+
+    if(QDir::currentPath().indexOf("build") != -1)
+    {
+        fileName.truncate(QDir::currentPath().indexOf("build"));
+
+        file.setFileName(fileName + "Brogrammers-2D-Shape-Drawer/Fresh-Start/shapes.txt");
+        QTextStream(stdout) << "this is the filename " <<fileName  << endl;
+    }
+    else
+    {
+        file.setFileName("/home/cs1c/Brogrammers-2D-Shape-Drawer/Fresh-Start/shapes.txt");
+    }
+
+
+    //this block of the code opens the file and writes to it
+    if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        QMessageBox::information(0, "the file isnt opening", file.errorString());
+    }
+    else
+    {
+        QTextStream(stdout) << "file opened, iterating..."  << endl;
+
+        QTextStream out(&file);
+
+        //traverse the vector and write the file
+        for(int i = 0; i < ui->renderWidget->getShapes()->size(); i++)
+        {
+            out << "ShapeId: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"] << endl;
+            out << "ShapeType: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"] << endl;
+            out << "ShapeDimensions: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeDimensions"] << endl;
+
+            if(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"] != "Text")
+            {
+                //output pen attributes needs
+                out << "PenColor: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["PenColor"] << endl;
+                out << "PenWidth: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["PenWidth"] << endl;
+                out << "PenStyle: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["PenStyle"] << endl;
+                out << "PenCapStyle: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["PenCapStyle"] << endl;
+                out << "PenJoinStyle: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["PenJoinStyle"] << endl;
+
+                if(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"] != "Line" &&
+                   ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"] != "Polyline")
+                {
+                    //output brush attributes
+                    out << "BrushColor: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["BrushColor"] << endl;
+                    out << "BrushStyle: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["BrushStyle"] << endl;
+                }
+            }
+            else
+            {
+                //handle output for text
+                out << "TextString: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextString"] << endl;
+                out << "TextColor: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextColor"] << endl;
+                out << "TextAlignment: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextAlignment"] << endl;
+                out << "TextPointSize: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextPointSize"] << endl;
+                out << "TextFontFamily: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextFontFamily"] << endl;
+                out << "TextFontStyle: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextFontStyle"] << endl;
+                out << "TextFontWeight: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextFontWeight"] << endl;
+            }
+            //etc..
+
+            out << endl; //give us an extra space
+        }
+    }
+
+
+    file.close();
+
+
     delete ui;
 }
 
