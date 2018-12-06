@@ -50,11 +50,7 @@ void Shape::defaultStyle(){
     pen.setBrush(Qt::green);
     pen.setCapStyle(Qt::RoundCap);
     pen.setJoinStyle(Qt::RoundJoin);
-    pen.setStyle(Qt::DashDotLine);
-    pen.setWidth(3);
-    pen.setBrush(Qt::green);
-    pen.setCapStyle(Qt::RoundCap);
-    pen.setJoinStyle(Qt::RoundJoin);
+
     QRadialGradient gradient(50, 50, 50, 50, 50);
     gradient.setColorAt(0, QColor::fromRgbF(0, 1, 0, 1));
     gradient.setColorAt(1, QColor::fromRgbF(0, 0, 0, 0));
@@ -81,11 +77,12 @@ void Shape::setStyles(){
 
 void Shape::activateStyles(){
     getQPainter().setPen(pen);
-    getQPainter().setBrush(brush);;
+    getQPainter().setBrush(brush);
 }
 
 void Shape::setPenColor(){
-    pen.setColor(QColor(props.value("TextColor")));
+    QColor penColor = QColor(props.value("PenColor"));
+    pen.setColor(penColor);
 }
 
 void Shape::setPenWidth(){

@@ -60,11 +60,14 @@ private:
     void setBrushColor();
     void setBrushStyle();
     void activateStyles();
+
+
+    QBrush brush;
+    QPen pen;
+    QPainter qpainter;
     QPaintDevice* device;
     QString identifier;
-    QPainter qpainter;
-    QPen pen;
-    QBrush brush;
+
 };
 
 #endif /* Shape_h */
