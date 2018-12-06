@@ -46,21 +46,7 @@ MainWindow::~MainWindow()
     //****THIS BLOCK OF CODE "SAVES" THE SHAPES.TXT
 
     //this block finds the correct filepath to shapes.txt
-    QFile file;
-    QString fileName = QDir::currentPath();
-
-    if(QDir::currentPath().indexOf("build") != -1)
-    {
-        fileName.truncate(QDir::currentPath().indexOf("build"));
-
-        file.setFileName(fileName + "Brogrammers-2D-Shape-Drawer/Fresh-Start/shapes.txt");
-        QTextStream(stdout) << "this is the filename " <<fileName  << endl;
-    }
-    else
-    {
-        file.setFileName("/home/cs1c/Brogrammers-2D-Shape-Drawer/Fresh-Start/shapes.txt");
-    }
-
+    QFile file("/home/cs1c/Brogrammers-2D-Shape-Drawer/Fresh-Start/shapes.txt");
 
     //this block of the code opens the file and writes to it
     if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -250,4 +236,14 @@ void MainWindow::on_moveShapeID_editingFinished()
     //reset the spin boxes values to 0
     ui->horizSpinBox->setValue(0);
     ui->vertSpinBox->setValue(0);
+}
+
+
+void MainWindow::on_typeBox_activated(const QString &arg1)
+{
+    if(arg1 == "Line" || arg1 == "Polyline")
+    {
+        //ui->addShapes->
+    }
+
 }

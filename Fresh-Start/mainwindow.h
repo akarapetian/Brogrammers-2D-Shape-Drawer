@@ -41,6 +41,8 @@ private slots:
 
     void on_moveShapeID_editingFinished();
 
+    void on_typeBox_activated(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 

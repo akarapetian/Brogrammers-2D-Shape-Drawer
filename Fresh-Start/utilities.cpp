@@ -26,23 +26,7 @@ public:
     static vector<QMap<QString,QString>> readShapesFile(){
 
         //this block finds the correct filepath to shapes.txt
-        QFile file;
-        QString fileName = QDir::currentPath();
-
-        if(QDir::currentPath().indexOf("build") != -1)
-        {
-            fileName.truncate(QDir::currentPath().indexOf("build"));
-
-            file.setFileName(fileName + "Brogrammers-2D-Shape-Drawer/Fresh-Start/shapes.txt");
-        }
-        else
-        {
-            file.setFileName("/home/cs1c/Brogrammers-2D-Shape-Drawer/Fresh-Start/shapes.txt");
-        }
-
-
-
-
+        QFile file("/home/cs1c/Brogrammers-2D-Shape-Drawer/Fresh-Start/shapes.txt");
 
         vector<QMap<QString,QString>> vec;
         QMap<QString,QString> dictionary;

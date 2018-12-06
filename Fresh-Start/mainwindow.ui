@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1158</width>
-    <height>688</height>
+    <width>1157</width>
+    <height>842</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>1141</width>
-      <height>601</height>
+      <height>671</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -113,19 +113,19 @@
        </rect>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox_4">
+     <widget class="QGroupBox" name="MoveShapeGBox">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>500</y>
-        <width>411</width>
-        <height>111</height>
+        <x>20</x>
+        <y>510</y>
+        <width>341</width>
+        <height>131</height>
        </rect>
       </property>
       <property name="title">
        <string>Move Shape</string>
       </property>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -147,7 +147,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>121</x>
@@ -176,7 +176,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>122</x>
@@ -206,7 +206,7 @@
        </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>760</x>
@@ -231,6 +231,100 @@
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QGroupBox" name="AddShapeGBox">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>510</y>
+        <width>371</width>
+        <height>261</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Add A Shape</string>
+      </property>
+      <widget class="QStackedWidget" name="addShapes">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>70</y>
+         <width>371</width>
+         <height>191</height>
+        </rect>
+       </property>
+       <widget class="QWidget" name="addLinePage"/>
+       <widget class="QWidget" name="addShapePage"/>
+       <widget class="QWidget" name="addTextPage"/>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>30</y>
+         <width>107</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <widget class="QLabel" name="label_15">
+          <property name="text">
+           <string>Type</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="typeBox">
+          <item>
+           <property name="text">
+            <string>Line</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Polyline</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Polygon</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rectangle</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Square</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ellipse</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Circle</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Text</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="UserPage">
@@ -263,7 +357,7 @@
         <rect>
          <x>0</x>
          <y>20</y>
-         <width>41</width>
+         <width>72</width>
          <height>261</height>
         </rect>
        </property>
@@ -506,7 +600,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1158</width>
+     <width>1157</width>
      <height>22</height>
     </rect>
    </property>
