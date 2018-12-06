@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
+    ui->dimensionsStack->setCurrentIndex(0);
+    ui->attributesStack->setCurrentIndex(0);
 
     //***** WE MAY NEED TO MOVE THIS BLOCK OF CODE SO THAT IT UPDATES WHEN SHAPES ARE ADDED/DELETED
     //this block works with the permimeter and area reports, it puts the items in the widget
@@ -138,8 +140,96 @@ void MainWindow::on_loginButton_clicked()
 
 void MainWindow::on_addShapeButton_clicked()
 {
+    //read data from mainwindow
+    QMap<QString, QString> data;
 
-    //ui->renderWidget->shapes.push_back(pointer to new shape);
+    QTextStream(stdout) << "fetching ShapeType: " << ui->typeBox->currentText() << endl;
+    QTextStream(stdout) << "fetching ShapeDimensions: " << ui->dimensions->text() << endl;
+
+    data.insert("ShapeId: ", "-1");
+    data.insert("ShapeType: ", ui->typeBox->currentText());
+    data.insert("ShapeDimensions: ", ui->dimensions->text());
+
+
+    if(ui->attributesStack->currentIndex() == 0)
+    {
+        //read line and polyline
+        data.insert("PenColor: ", ui->lineColor->currentText());
+        data.insert("PenWidth: ", ui->lineWidth->text());
+        data.insert("PenStyle: ", ui->lineStyle->currentText());
+        data.insert("PenCapStyle: ", ui->lineCapStyle->currentText());
+        data.insert("PenJoinStyle: ", ui->lineJoinStyle->currentText());
+    }
+    else if(ui->attributesStack->currentIndex() == 1)
+    {
+        //read shapes into map
+        data.insert("PenColor: ", ui->shapecolor->currentText());
+        data.insert("PenWidth: ", ui->shapePenWidth->text());
+        data.insert("PenStyle: ", ui->shapePenStyle->currentText());
+        data.insert("PenCapStyle: ", ui->shapePenCapStyle->currentText());
+        data.insert("PenJoinStyle: ", ui->shapePenJoinStyle->currentText());
+        data.insert("BrushColor: ", ui->shapeBrushColor->currentText());
+        data.insert("BrushStyle: ", ui->shapeBrushStyle->currentText());
+    }
+    else if(ui->attributesStack->currentIndex() == 2)
+    {
+        //read text stuff
+        data.insert("TextString: ", ui->textString->text());
+        data.insert("TextColor: ", ui->textColor->currentText());
+        data.insert("TextAlignment: ", ui->textAlignment->currentText());
+        data.insert("TextPointSize: ", ui->textPointSize->text());
+        data.insert("TextFontFamily: ", ui->textFontFamily->currentText());
+        data.insert("TextFontStyle: ", ui->textFontStyle->currentText());
+        data.insert("TextFontWeight: ", ui->textFontWeight->currentText());
+    }
+
+    if(ui->typeBox->currentText() == "Line")
+    {
+        ui->renderWidget->getShapes()->push_back(new Line(data, ui->renderWidget));
+
+
+        QTextStream(stdout) << "data map contains: "  << endl;
+        QTextStream(stdout) << "ShapeId: " << data.value("ShapeId: ") << endl;
+        QTextStream(stdout) << "ShapeType: " << data.value("ShapeType: ") << endl;
+        QTextStream(stdout) << "ShapeDimensions: " << data.value("ShapeDimensions: ") << endl << endl;
+
+
+        //this is currently pushing back a vector with no data
+        QTextStream(stdout) << "added line with following data: "  << endl;
+        QTextStream(stdout) << "ShapeId: " << ui->renderWidget->getShapes()->operator [](ui->renderWidget->getShapes()->size() - 1)->getDictionary()["ShapeId"] << endl;
+        QTextStream(stdout) << "ShapeType: " << ui->renderWidget->getShapes()->operator [](ui->renderWidget->getShapes()->size() -  1)->getDictionary()["ShapeType"] << endl;
+        QTextStream(stdout) << "ShapeDimensions: " << ui->renderWidget->getShapes()->operator [](ui->renderWidget->getShapes()->size() - 1)->getDictionary()["ShapeDimensions"] << endl;
+    }
+
+
+    if(ui->typeBox->currentText() == "Polyline")
+    {
+        ui->renderWidget->getShapes()->push_back(new Polyline(data, ui->renderWidget));
+    }
+    if(ui->typeBox->currentText() == "Polygon")
+    {
+        ui->renderWidget->getShapes()->push_back(new Polygon(data, ui->renderWidget));
+    }
+    if(ui->typeBox->currentText() == "Rectangle")
+    {
+        ui->renderWidget->getShapes()->push_back(new Rectangle(data, ui->renderWidget));
+    }
+    if(ui->typeBox->currentText() == "Square")
+    {
+        ui->renderWidget->getShapes()->push_back(new Square(data, ui->renderWidget));
+    }
+    if(ui->typeBox->currentText() == "Ellipse")
+    {
+        ui->renderWidget->getShapes()->push_back(new Ellipse(data, ui->renderWidget));
+    }
+    if(ui->typeBox->currentText() == "Circle")
+    {
+        ui->renderWidget->getShapes()->push_back(new Circle(data, ui->renderWidget));
+    }
+    if(ui->typeBox->currentText() == "Text")
+    {
+        ui->renderWidget->getShapes()->push_back(new Text(data, ui->renderWidget));
+    }
 }
 
 void MainWindow::on_actionPerimeters_triggered()
@@ -239,11 +329,46 @@ void MainWindow::on_moveShapeID_editingFinished()
 }
 
 
-void MainWindow::on_typeBox_activated(const QString &arg1)
+void MainWindow::on_typeBox_currentTextChanged(const QString &arg1)
 {
-    if(arg1 == "Line" || arg1 == "Polyline")
+    if(arg1 == "Line")
     {
-        //ui->addShapes->
+        ui->dimensionsStack->setCurrentIndex(0);
+        ui->attributesStack->setCurrentIndex(0);
     }
-
+    else if (arg1 == "Polyline")
+    {
+        ui->dimensionsStack->setCurrentIndex(1);
+        ui->attributesStack->setCurrentIndex(0);
+    }
+    else if(arg1 == "Polygon")
+    {
+        ui->dimensionsStack->setCurrentIndex(2);
+        ui->attributesStack->setCurrentIndex(1);
+    }
+    else if(arg1 == "Rectangle")
+    {
+        ui->dimensionsStack->setCurrentIndex(3);
+        ui->attributesStack->setCurrentIndex(1);
+    }
+    else if(arg1 == "Square")
+    {
+        ui->dimensionsStack->setCurrentIndex(4);
+        ui->attributesStack->setCurrentIndex(1);
+    }
+    else if(arg1 == "Ellipse")
+    {
+        ui->dimensionsStack->setCurrentIndex(5);
+        ui->attributesStack->setCurrentIndex(1);
+    }
+    else if(arg1 == "Circle")
+    {
+        ui->dimensionsStack->setCurrentIndex(6);
+        ui->attributesStack->setCurrentIndex(1);
+    }
+    else if(arg1 == "Text")
+    {
+        ui->dimensionsStack->setCurrentIndex(7);
+        ui->attributesStack->setCurrentIndex(2);
+    }
 }

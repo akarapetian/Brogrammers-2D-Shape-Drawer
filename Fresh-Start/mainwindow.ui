@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1157</width>
-    <height>842</height>
+    <width>1152</width>
+    <height>873</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>1141</width>
-      <height>671</height>
+      <height>801</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -116,8 +116,8 @@
      <widget class="QGroupBox" name="MoveShapeGBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>510</y>
+        <x>750</x>
+        <y>540</y>
         <width>341</width>
         <height>131</height>
        </rect>
@@ -206,63 +206,24 @@
        </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>760</x>
-        <y>530</y>
-        <width>331</width>
-        <height>27</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <widget class="QPushButton" name="addShapeButton">
-         <property name="text">
-          <string>Add Shape</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton">
-         <property name="text">
-          <string>Delete Shape</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
      <widget class="QGroupBox" name="AddShapeGBox">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>510</y>
-        <width>371</width>
-        <height>261</height>
+        <x>20</x>
+        <y>500</y>
+        <width>661</width>
+        <height>291</height>
        </rect>
       </property>
       <property name="title">
        <string>Add A Shape</string>
       </property>
-      <widget class="QStackedWidget" name="addShapes">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>70</y>
-         <width>371</width>
-         <height>191</height>
-        </rect>
-       </property>
-       <widget class="QWidget" name="addLinePage"/>
-       <widget class="QWidget" name="addShapePage"/>
-       <widget class="QWidget" name="addTextPage"/>
-      </widget>
       <widget class="QWidget" name="">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>30</y>
-         <width>107</width>
+         <x>20</x>
+         <y>40</y>
+         <width>181</width>
          <height>27</height>
         </rect>
        </property>
@@ -316,15 +277,943 @@
             <string>Text</string>
            </property>
           </item>
-          <item>
-           <property name="text">
-            <string/>
-           </property>
-          </item>
          </widget>
         </item>
        </layout>
       </widget>
+      <widget class="QStackedWidget" name="attributesStack">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>20</y>
+         <width>311</width>
+         <height>251</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>2</number>
+       </property>
+       <widget class="QWidget" name="addLinePage">
+        <widget class="QWidget" name="">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>10</y>
+           <width>271</width>
+           <height>181</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_17">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_19">
+            <item>
+             <widget class="QLabel" name="label_18">
+              <property name="text">
+               <string>Pen Color</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="lineColor">
+              <item>
+               <property name="text">
+                <string>black</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>red</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>green</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>blue</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>cyan</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>magenta</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>yellow</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>gray</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_18">
+            <item>
+             <widget class="QLabel" name="label_19">
+              <property name="text">
+               <string>Pen Width</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="lineWidth">
+              <property name="maximum">
+               <number>20</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_17">
+            <item>
+             <widget class="QLabel" name="label_20">
+              <property name="text">
+               <string>Pen Style</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="lineStyle">
+              <item>
+               <property name="text">
+                <string>NoPen</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>SolidLine</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>DashLine</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>DotLine</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>DashDotLine</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>DashDotDotLine</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_16">
+            <item>
+             <widget class="QLabel" name="label_21">
+              <property name="text">
+               <string>Pen Cap Style</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="lineCapStyle">
+              <item>
+               <property name="text">
+                <string>FlatCap</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>SquareCap</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>RoundCap</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_20">
+            <item>
+             <widget class="QLabel" name="label_22">
+              <property name="text">
+               <string>Pen Join Style</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="lineJoinStyle">
+              <item>
+               <property name="text">
+                <string>MiterJoin</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>BevelJoin</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>RoundJoin</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="addShapePage">
+        <widget class="QWidget" name="">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>271</width>
+           <height>241</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_19">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_18">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_21">
+              <item>
+               <widget class="QLabel" name="label_39">
+                <property name="text">
+                 <string>Pen Color</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="shapecolor">
+                <item>
+                 <property name="text">
+                  <string>black</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>red</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>green</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>blue</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>cyan</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>magenta</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>yellow</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>gray</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_22">
+              <item>
+               <widget class="QLabel" name="label_40">
+                <property name="text">
+                 <string>Pen Width</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="shapePenWidth">
+                <property name="maximum">
+                 <number>20</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_23">
+              <item>
+               <widget class="QLabel" name="label_41">
+                <property name="text">
+                 <string>Pen Style</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="shapePenStyle">
+                <item>
+                 <property name="text">
+                  <string>NoPen</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>SolidLine</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>DashLine</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>DotLine</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>DashDotLine</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>DashDotDotLine</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_24">
+              <item>
+               <widget class="QLabel" name="label_42">
+                <property name="text">
+                 <string>Pen Cap Style</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="shapePenCapStyle">
+                <item>
+                 <property name="text">
+                  <string>FlatCap</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>SquareCap</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>RoundCap</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_25">
+              <item>
+               <widget class="QLabel" name="label_43">
+                <property name="text">
+                 <string>Pen Join Style</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="shapePenJoinStyle">
+                <item>
+                 <property name="text">
+                  <string>MiterJoin</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>BevelJoin</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>RoundJoin</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_26">
+            <item>
+             <widget class="QLabel" name="label_44">
+              <property name="text">
+               <string>Brush Color</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="shapeBrushColor">
+              <item>
+               <property name="text">
+                <string>white</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>black</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>red</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>green</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>blue</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>cyan</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>magenta</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>yellow</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>gray</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_27">
+            <item>
+             <widget class="QLabel" name="label_45">
+              <property name="text">
+               <string>Brush Style</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="shapeBrushStyle">
+              <item>
+               <property name="text">
+                <string>SolidPattern</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>HorPattern</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>VerPattern</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>NoBrush</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="addTextPage">
+        <widget class="QWidget" name="">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>0</y>
+           <width>271</width>
+           <height>228</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_20">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_35">
+            <item>
+             <widget class="QLabel" name="label_53">
+              <property name="text">
+               <string>Text String</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="textString"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_28">
+            <item>
+             <widget class="QLabel" name="label_46">
+              <property name="text">
+               <string>Text Color</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="textColor">
+              <item>
+               <property name="text">
+                <string>black</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>red</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>green</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>blue</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>cyan</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>magenta</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>yellow</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>gray</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_30">
+            <item>
+             <widget class="QLabel" name="label_48">
+              <property name="text">
+               <string>Text Alignment</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="textAlignment">
+              <item>
+               <property name="text">
+                <string>AlignLeft</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>AlignRight</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>AlignTop</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>AlignBottom</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>AlignCenter</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_29">
+            <item>
+             <widget class="QLabel" name="label_47">
+              <property name="text">
+               <string>Text Point Size</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="textPointSize">
+              <property name="maximum">
+               <number>20</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_32">
+            <item>
+             <widget class="QLabel" name="label_50">
+              <property name="text">
+               <string>Text Font Family</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="textFontFamily">
+              <item>
+               <property name="text">
+                <string>Comic Sans Mc</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Courier</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Helvetica</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Times</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_33">
+            <item>
+             <widget class="QLabel" name="label_51">
+              <property name="text">
+               <string>Text Font Style</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="textFontStyle">
+              <item>
+               <property name="text">
+                <string>StyleNormal</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>StyleItalic</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>StyleOblique</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_34">
+            <item>
+             <widget class="QLabel" name="label_52">
+              <property name="text">
+               <string>Text Font Weight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="textFontWeight">
+              <item>
+               <property name="text">
+                <string>Thin</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Light</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Normal</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Bold</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QStackedWidget" name="dimensionsStack">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>120</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="lineDimensions">
+        <widget class="QLabel" name="label_31">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>72</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>x1, y1, x2, y2</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="polylineDimensions">
+        <widget class="QLabel" name="label_32">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>131</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>x1, y1, x2, y2, ..., xN, yN</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="polygonDimensions">
+        <widget class="QLabel" name="label_33">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>131</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>x1, y1, x2, y2, ..., xN, yN</string>
+         </property>
+        </widget>
+        <zorder>label_33</zorder>
+        <zorder>label_30</zorder>
+       </widget>
+       <widget class="QWidget" name="rectangleDimensions">
+        <widget class="QLabel" name="label_34">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>59</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>x1, y1, l, w</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="squareDimensions">
+        <widget class="QLabel" name="label_35">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>42</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>x1, y1, l</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="ellipseDimensions">
+        <widget class="QLabel" name="label_36">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>60</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>x1, y1, a, b</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="circleDimensions">
+        <widget class="QLabel" name="label_37">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>44</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>x1, y1, r</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="textDimensions">
+        <widget class="QLabel" name="label_38">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>59</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>x1, y1, l, w</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QLabel" name="label_30">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>150</y>
+         <width>311</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Please enter the dimensions in the exact form shown!</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="addShapeButton">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>200</y>
+         <width>211</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Shape</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>80</y>
+         <width>183</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <widget class="QLabel" name="label_16">
+          <property name="text">
+           <string>Dimensions</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="dimensions"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>860</x>
+        <y>690</y>
+        <width>83</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Delete Shape</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="UserPage">
@@ -594,13 +1483,24 @@
      </widget>
     </widget>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>2</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_9"/>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1157</width>
+     <width>1152</width>
      <height>22</height>
     </rect>
    </property>
