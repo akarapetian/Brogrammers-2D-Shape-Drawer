@@ -15,7 +15,7 @@ BUGS:
 - our shapes report listing is not being updated if a shape is added or deleted
 
 Currently we need to:
-
+- add exception handling
 - add report listing for all shapes and attributes
 - add shapes
 - delete shapes(FINISHED)
