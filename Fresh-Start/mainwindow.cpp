@@ -230,6 +230,35 @@ void MainWindow::on_addShapeButton_clicked()
     {
         ui->renderWidget->getShapes()->push_back(new Text(data, ui->renderWidget));
     }
+
+
+    //clear old reports
+    ui->idListWidget->clear();
+    ui->perimeterListWidget->clear();
+    ui->typeListWidget->clear();
+    ui->idListWidget_2->clear();
+    ui->typeListWidget_2->clear();
+    ui->areaListWidget->clear();
+
+    //this for loop iterates through the whole vector
+    for(int i = 0; i < ui->renderWidget->getShapes()->size(); i++ )
+    {
+        //if statement checks if the shape has a perimeter, and outputs it if it does
+        if(ui->renderWidget->getShapes()->operator [](i)->perimeter() != -1)
+        {
+            ui->idListWidget       ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"]);
+            ui->typeListWidget     ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"]);
+            ui->perimeterListWidget->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->perimeter()));
+        }
+
+        //if statement checks if the shape has an area and outputs it if it does
+        if(ui->renderWidget->getShapes()->operator [](i)->area() != -1)
+        {
+            ui->idListWidget_2     ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"]);
+            ui->typeListWidget_2   ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"]);
+            ui->areaListWidget->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->area()));
+        }
+    }
 }
 
 void MainWindow::on_actionPerimeters_triggered()
@@ -394,6 +423,35 @@ void MainWindow::on_deleteShapeButton_clicked()
         else
         {
             count++;
+        }
+    }
+
+
+    //clear old reports
+    ui->idListWidget->clear();
+    ui->perimeterListWidget->clear();
+    ui->typeListWidget->clear();
+    ui->idListWidget_2->clear();
+    ui->typeListWidget_2->clear();
+    ui->areaListWidget->clear();
+
+    //this for loop iterates through the whole vector
+    for(int i = 0; i < ui->renderWidget->getShapes()->size(); i++ )
+    {
+        //if statement checks if the shape has a perimeter, and outputs it if it does
+        if(ui->renderWidget->getShapes()->operator [](i)->perimeter() != -1)
+        {
+            ui->idListWidget       ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"]);
+            ui->typeListWidget     ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"]);
+            ui->perimeterListWidget->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->perimeter()));
+        }
+
+        //if statement checks if the shape has an area and outputs it if it does
+        if(ui->renderWidget->getShapes()->operator [](i)->area() != -1)
+        {
+            ui->idListWidget_2     ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"]);
+            ui->typeListWidget_2   ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"]);
+            ui->areaListWidget->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->area()));
         }
     }
 }
