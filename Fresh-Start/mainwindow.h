@@ -55,6 +55,12 @@ private slots:
 
     void on_deleteShapeButton_clicked();
 
+    void on_actionBoth_triggered();
+
+    void on_returnButton_3_clicked();
+
+    void on_cancelButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 

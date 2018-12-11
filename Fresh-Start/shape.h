@@ -16,6 +16,8 @@
 #include <QTextStream>
 #include <iostream>
 
+#include <math.h>
+
 /*!
 * an abstract base class for a shape
 */

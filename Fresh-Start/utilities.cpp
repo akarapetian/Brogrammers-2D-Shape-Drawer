@@ -95,4 +95,46 @@ public:
 
         return newVector;
     }
+
+
+
+    static vector<Shape*> selectionSort(QPaintDevice* device, bool (*comparisonFcn)(Shape*,Shape*))
+    {
+
+        vector<Shape*> newVector = readShapes(device);
+
+        // Step through each node of the vector
+        for (int i = 0; i < newVector.size(); ++i)
+        {
+            int bestIndex = i;
+
+            for (int currentIndex = i + 1; currentIndex < newVector.size(); ++currentIndex)
+            {
+                // If the current element is smaller/larger than our previously found smallest
+                if (comparisonFcn(newVector[currentIndex], newVector[currentIndex])) // COMPARISON DONE HERE
+                    // This is the new smallest/largest number for this iteration
+                    bestIndex = currentIndex;
+            }
+
+            // Swap our start element with our best element
+            std::swap(newVector[i], newVector[bestIndex]);
+        }
+
+        return newVector;
+    }
+
+    static bool id(Shape* prev, Shape* current)
+    {
+        return prev->getId() < current->getId();
+    }
+
+    static bool perimeter(Shape* prev, Shape* current)
+    {
+        return prev->perimeter() < current->perimeter();
+    }
+
+    static bool area(Shape* prev, Shape* current)
+    {
+        return prev->area() < current->area();
+    }
 };

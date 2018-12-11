@@ -14,6 +14,8 @@ renderArea::renderArea(QWidget *parent)
 
     shapes = Utilities::readShapes(this);
 
+    //shapes = Utilities::selectionSort(this, Utilities::perimeter);
+
     //this will show if the parser is populating the shapes vector, it is not working currently, (why nothing is drawing)
     QTextStream(stdout) << "size of shapes vector: " << shapes.size()  << endl;
 

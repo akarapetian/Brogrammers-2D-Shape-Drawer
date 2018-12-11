@@ -49,6 +49,7 @@ private:
     /*!
     * vector for the shapes
     */
+public:
     vector<Shape *> shapes;
 };
 

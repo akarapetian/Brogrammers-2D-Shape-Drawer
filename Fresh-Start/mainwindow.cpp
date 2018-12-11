@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "utilities.cpp"
 
 #include <QMessageBox>
 #include <QFile>
@@ -24,6 +25,12 @@ MainWindow::MainWindow(QWidget *parent) :
     //this for loop iterates through the whole vector
     for(int i = 0; i < ui->renderWidget->getShapes()->size(); i++ )
     {
+        ui->idListWidget_3->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"]);
+        ui->typeListWidget_3     ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"]);
+        ui->perimeterListWidget_2->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->perimeter()));
+        ui->araeWidget->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->area()));
+
+
         //if statement checks if the shape has a perimeter, and outputs it if it does
         if(ui->renderWidget->getShapes()->operator [](i)->perimeter() != -1)
         {
@@ -140,49 +147,169 @@ void MainWindow::on_loginButton_clicked()
 
 void MainWindow::on_addShapeButton_clicked()
 {
+
+    //since this is not working, what if i wrote to the shapes.txt file and re-parsed??????
+    //it is working but is very badly coded
+
+    //this block finds the correct filepath to shapes.txt
+    QFile file("/home/cs1c/Brogrammers-2D-Shape-Drawer/Fresh-Start/shapes.txt");
     //read data from mainwindow
     QMap<QString, QString> data;
 
-    QTextStream(stdout) << "fetching ShapeType: " << ui->typeBox->currentText() << endl;
-    QTextStream(stdout) << "fetching ShapeDimensions: " << ui->dimensions->text() << endl;
-
-    data.insert("ShapeId: ", "-1");
-    data.insert("ShapeType: ", ui->typeBox->currentText());
-    data.insert("ShapeDimensions: ", ui->dimensions->text());
-
-
-    if(ui->attributesStack->currentIndex() == 0)
+    //this block of the code opens the file and writes to it
+    if(!file.open(QIODevice::WriteOnly))
     {
-        //read line and polyline
-        data.insert("PenColor: ", ui->lineColor->currentText());
-        data.insert("PenWidth: ", ui->lineWidth->text());
-        data.insert("PenStyle: ", ui->lineStyle->currentText());
-        data.insert("PenCapStyle: ", ui->lineCapStyle->currentText());
-        data.insert("PenJoinStyle: ", ui->lineJoinStyle->currentText());
+        QMessageBox::information(0, "the file isnt opening", file.errorString());
     }
-    else if(ui->attributesStack->currentIndex() == 1)
+    else
     {
-        //read shapes into map
-        data.insert("PenColor: ", ui->shapecolor->currentText());
-        data.insert("PenWidth: ", ui->shapePenWidth->text());
-        data.insert("PenStyle: ", ui->shapePenStyle->currentText());
-        data.insert("PenCapStyle: ", ui->shapePenCapStyle->currentText());
-        data.insert("PenJoinStyle: ", ui->shapePenJoinStyle->currentText());
-        data.insert("BrushColor: ", ui->shapeBrushColor->currentText());
-        data.insert("BrushStyle: ", ui->shapeBrushStyle->currentText());
-    }
-    else if(ui->attributesStack->currentIndex() == 2)
-    {
-        //read text stuff
-        data.insert("TextString: ", ui->textString->text());
-        data.insert("TextColor: ", ui->textColor->currentText());
-        data.insert("TextAlignment: ", ui->textAlignment->currentText());
-        data.insert("TextPointSize: ", ui->textPointSize->text());
-        data.insert("TextFontFamily: ", ui->textFontFamily->currentText());
-        data.insert("TextFontStyle: ", ui->textFontStyle->currentText());
-        data.insert("TextFontWeight: ", ui->textFontWeight->currentText());
+        QTextStream(stdout) << "shape is being added..."  << endl;
+
+        QTextStream out(&file);
+
+        //traverse the vector and write the file
+        for(int i = 0; i < ui->renderWidget->getShapes()->size(); i++)
+        {
+            out << "ShapeId: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"] << endl;
+            out << "ShapeType: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"] << endl;
+            out << "ShapeDimensions: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeDimensions"] << endl;
+
+            if(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"] != "Text")
+            {
+                //output pen attributes needs
+                out << "PenColor: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["PenColor"] << endl;
+                out << "PenWidth: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["PenWidth"] << endl;
+                out << "PenStyle: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["PenStyle"] << endl;
+                out << "PenCapStyle: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["PenCapStyle"] << endl;
+                out << "PenJoinStyle: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["PenJoinStyle"] << endl;
+
+                if(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"] != "Line" &&
+                   ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"] != "Polyline")
+                {
+                    //output brush attributes
+                    out << "BrushColor: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["BrushColor"] << endl;
+                    out << "BrushStyle: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["BrushStyle"] << endl;
+                }
+            }
+            else
+            {
+                //handle output for text
+                out << "TextString: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextString"] << endl;
+                out << "TextColor: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextColor"] << endl;
+                out << "TextAlignment: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextAlignment"] << endl;
+                out << "TextPointSize: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextPointSize"] << endl;
+                out << "TextFontFamily: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextFontFamily"] << endl;
+                out << "TextFontStyle: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextFontStyle"] << endl;
+                out << "TextFontWeight: " << ui->renderWidget->getShapes()->operator [](i)->getDictionary()["TextFontWeight"] << endl;
+            }
+            //etc..
+
+            out << endl; //give us an extra space
+        }
+
+
+
+        //after-re-writing the file, actually add the shape
+
+        /*
+        data.insert("ShapeId: ", ui->renderWidget->getShapes()->size());
+        data.insert("ShapeType: ", ui->typeBox->currentText());
+        data.insert("ShapeDimensions: ", ui->dimensions->text());
+        */
+
+        //fix shape id
+
+
+        int id = 0;
+        //find unique id
+        for(int i = 0; i < ui->renderWidget->getShapes()->size(); i++)
+        {
+            if(id < ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"].toInt() + 1)
+            {
+                id = ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"].toInt() + 1;
+            }
+        }
+
+        //QString::number(ui->renderWidget->getShapes()->end()->getDictionary()["ShapeId"].toInt() + 1);
+
+        out << "ShapeId: " << id << endl;
+        out << "ShapeType: " << ui->typeBox->currentText() << endl;
+        out << "ShapeDimensions: " << ui->dimensions->text() << endl;
+
+
+        if(ui->attributesStack->currentIndex() == 0)
+        {
+            //read line and polyline
+            /*
+            data.insert("PenColor: ", ui->lineColor->currentText());
+            data.insert("PenWidth: ", ui->lineWidth->text());
+            data.insert("PenStyle: ", ui->lineStyle->currentText());
+            data.insert("PenCapStyle: ", ui->lineCapStyle->currentText());
+            data.insert("PenJoinStyle: ", ui->lineJoinStyle->currentText());
+            */
+            QTextStream(stdout) << "line is being added..."  << endl;
+            out << "PenColor: " << ui->lineColor->currentText() << endl;
+            out << "PenWidth: " << ui->lineWidth->text() << endl;
+            out << "PenStyle: " << ui->lineStyle->currentText() << endl;
+            out << "PenCapStyle: " << ui->lineCapStyle->currentText() << endl;
+            out << "PenJoinStyle: " << ui->lineJoinStyle->currentText() << endl;
+            QTextStream(stdout) << "line was added..."  << endl;
+
+        }
+        else if(ui->attributesStack->currentIndex() == 1)
+        {
+            //read shapes into map
+            /*
+            data.insert("PenColor: ", ui->shapecolor->currentText());
+            data.insert("PenWidth: ", ui->shapePenWidth->text());
+            data.insert("PenStyle: ", ui->shapePenStyle->currentText());
+            data.insert("PenCapStyle: ", ui->shapePenCapStyle->currentText());
+            data.insert("PenJoinStyle: ", ui->shapePenJoinStyle->currentText());
+            data.insert("BrushColor: ", ui->shapeBrushColor->currentText());
+            data.insert("BrushStyle: ", ui->shapeBrushStyle->currentText());
+            */
+
+            out << "PenColor: " << ui->shapecolor->currentText() << endl;
+            out << "PenWidth: " << ui->shapePenWidth->text() << endl;
+            out << "PenStyle: " << ui->shapePenStyle->currentText() << endl;
+            out << "PenCapStyle: " << ui->shapePenCapStyle->currentText() << endl;
+            out << "PenJoinStyle: " << ui->shapePenJoinStyle->currentText() << endl;
+            out << "BrushColor: " << ui->shapeBrushColor->currentText() << endl;
+            out << "BrushStyle: " << ui->shapeBrushStyle->currentText() << endl;
+        }
+        else if(ui->attributesStack->currentIndex() == 2)
+        {
+
+            //read text stuff
+            /*
+            data.insert("TextString: ", ui->textString->text());
+            data.insert("TextColor: ", ui->textColor->currentText());
+            data.insert("TextAlignment: ", ui->textAlignment->currentText());
+            data.insert("TextPointSize: ", ui->textPointSize->text());
+            data.insert("TextFontFamily: ", ui->textFontFamily->currentText());
+            data.insert("TextFontStyle: ", ui->textFontStyle->currentText());
+            data.insert("TextFontWeight: ", ui->textFontWeight->currentText());
+            */
+
+            out << "TextString: " << ui->textString->text() << endl;
+            out << "TextColor: " << ui->textColor->currentText() << endl;
+            out << "TextAlignment: " << ui->textAlignment->currentText() << endl;
+            out << "TextPointSize: " << ui->textPointSize->text() << endl;
+            out << "TextFontFamily: " << ui->textFontFamily->currentText() << endl;
+            out << "TextFontStyle: " << ui->textFontStyle->currentText() << endl;
+            out << "TextFontWeight: " << ui->textFontWeight->currentText() << endl;
+        }
+
+        out << endl;
     }
 
+    file.close();
+
+
+    ui->renderWidget->shapes = Utilities::readShapes(ui->renderWidget);
+    ui->renderWidget->update();
+
+    /*
     if(ui->typeBox->currentText() == "Line")
     {
         ui->renderWidget->getShapes()->push_back(new Line(data, ui->renderWidget));
@@ -200,6 +327,9 @@ void MainWindow::on_addShapeButton_clicked()
         QTextStream(stdout) << "ShapeType: " << ui->renderWidget->getShapes()->operator [](ui->renderWidget->getShapes()->size() -  1)->getDictionary()["ShapeType"] << endl;
         QTextStream(stdout) << "ShapeDimensions: " << ui->renderWidget->getShapes()->operator [](ui->renderWidget->getShapes()->size() - 1)->getDictionary()["ShapeDimensions"] << endl;
     }
+
+
+
 
 
     if(ui->typeBox->currentText() == "Polyline")
@@ -230,6 +360,8 @@ void MainWindow::on_addShapeButton_clicked()
     {
         ui->renderWidget->getShapes()->push_back(new Text(data, ui->renderWidget));
     }
+    */
+
 
 
     //clear old reports
@@ -243,6 +375,10 @@ void MainWindow::on_addShapeButton_clicked()
     //this for loop iterates through the whole vector
     for(int i = 0; i < ui->renderWidget->getShapes()->size(); i++ )
     {
+        ui->idListWidget_3->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"]);
+        ui->typeListWidget_3     ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"]);
+        ui->perimeterListWidget_2->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->perimeter()));
+        ui->araeWidget->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->area()));
         //if statement checks if the shape has a perimeter, and outputs it if it does
         if(ui->renderWidget->getShapes()->operator [](i)->perimeter() != -1)
         {
@@ -275,7 +411,7 @@ void MainWindow::on_actionAreas_triggered()
 
 void MainWindow::on_actionOur_Information_triggered()
 {
-    ui->stackedWidget->setCurrentIndex(6);
+    ui->stackedWidget->setCurrentIndex(7);
 }
 
 void MainWindow::on_returnButton_clicked()
@@ -438,6 +574,10 @@ void MainWindow::on_deleteShapeButton_clicked()
     //this for loop iterates through the whole vector
     for(int i = 0; i < ui->renderWidget->getShapes()->size(); i++ )
     {
+        ui->idListWidget_3->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeId"]);
+        ui->typeListWidget_3     ->addItem(ui->renderWidget->getShapes()->operator [](i)->getDictionary()["ShapeType"]);
+        ui->perimeterListWidget_2->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->perimeter()));
+        ui->araeWidget->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->area()));
         //if statement checks if the shape has a perimeter, and outputs it if it does
         if(ui->renderWidget->getShapes()->operator [](i)->perimeter() != -1)
         {
@@ -454,4 +594,26 @@ void MainWindow::on_deleteShapeButton_clicked()
             ui->areaListWidget->addItem(QString::number(ui->renderWidget->getShapes()->operator [](i)->area()));
         }
     }
+}
+
+void MainWindow::on_actionBoth_triggered()
+{
+     ui->stackedWidget->setCurrentIndex(6);
+}
+
+void MainWindow::on_returnButton_3_clicked()
+{
+    if(loginType == "admin")
+    {
+        ui->stackedWidget->setCurrentIndex(2);
+    }
+    else if(loginType == "user")
+    {
+        ui->stackedWidget->setCurrentIndex(3);
+    }
+}
+
+void MainWindow::on_cancelButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(0);
 }

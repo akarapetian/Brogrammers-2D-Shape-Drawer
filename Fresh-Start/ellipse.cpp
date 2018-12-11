@@ -65,11 +65,11 @@ void Ellipse::move(const int translate_x, const int translate_y)
 double Ellipse::perimeter()
 {
     QStringList words = props["ShapeDimensions"].split(", ");
-    return  2 * M_PI * words[2].toInt();
+    return  2 * M_PI * sqrt(((words[2].toInt() * words[2].toInt()) + (words[3].toInt() * words[3].toInt()))/2);
 }
 
 int Ellipse::area()
 {
     QStringList words = props["ShapeDimensions"].split(", ");
-    return M_PI * words[2].toInt() * words[2].toInt();
+    return M_PI * words[2].toInt() * words[3].toInt();
 }
