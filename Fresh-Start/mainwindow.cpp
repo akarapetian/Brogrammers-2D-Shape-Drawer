@@ -124,24 +124,33 @@ void MainWindow::on_actionLogin_triggered()
 
 void MainWindow::on_loginButton_clicked()
 {
-    QString username = ui->lineEdit_username->text();
-    QString password = ui->lineEdit_password->text();
 
-    if(username == "admin" && password == "admin")
-    {
-        //accept login
-        ui->stackedWidget->setCurrentIndex(2);
-        loginType = "admin";
+
+    try{
+        QString username = ui->lineEdit_username->text();
+        QString password = ui->lineEdit_password->text();
+
+        QString string = "";
+
+        if(username == "admin" && password == "admin")
+        {
+            //accept login
+            ui->stackedWidget->setCurrentIndex(2);
+            loginType = "admin";
+        }
+        else if(username == "user" && password == "user")
+        {
+            //reject login
+            ui->stackedWidget->setCurrentIndex(3);
+            loginType = "user";
+        }
+        else
+        {
+            throw string;
+        }
     }
-    else if(username == "user" && password == "user")
-    {
-        //reject login
-        ui->stackedWidget->setCurrentIndex(3);
-        loginType = "user";
-    }
-    else
-    {
-        QMessageBox::warning(this, "warning", "Invalid Credentials!");
+    catch(QString){
+            QMessageBox::warning(this, "warning", "Invalid Credentials!");
     }
 }
 
